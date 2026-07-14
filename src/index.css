@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+/* ==========================================================================
+   Design Tokens — single source of truth for Lumio
+   Tailwind v4 @theme registers utilities (bg-primary, text-sm, h-header, etc.)
+   ========================================================================== */
+
+@theme {
+  /* ── Typography ───────────────────────────────────────────────────────── */
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'Segoe UI Mono', monospace;
+
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.75rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 2.5rem;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+
+  /* ── Semantic colors (Lumio logo: purple → blue → cyan) ─────────────── */
+
+  --color-brand-purple: oklch(0.58 0.24 300);
+  --color-brand-blue: oklch(0.58 0.2 260);
+  --color-brand-cyan: oklch(0.72 0.14 210);
+  --color-brand-dark: #4A4968;
+
+  --color-background: oklch(0.988 0.006 290);
+  --color-foreground: oklch(0.24 0.06 275);
+
+  --color-card: oklch(1 0.002 290);
+  --color-card-foreground: oklch(0.24 0.06 275);
+
+  --color-popover: oklch(1 0.002 290);
+  --color-popover-foreground: oklch(0.24 0.06 275);
+
+  --color-primary: oklch(0.52 0.22 298);
+  --color-primary-foreground: oklch(0.99 0 0);
+
+  --color-secondary: oklch(0.96 0.02 290);
+  --color-secondary-foreground: oklch(0.32 0.08 280);
+
+  --color-muted: oklch(0.965 0.014 285);
+  --color-muted-foreground: oklch(0.5 0.04 280);
+
+  --color-accent: oklch(0.93 0.045 220);
+  --color-accent-foreground: oklch(0.38 0.12 260);
+
+  --color-destructive: oklch(0.37 0.17 29.34);
+  --color-destructive-foreground: oklch(0.99 0 0);
+
+  --color-success: oklch(0.55 0.15 145);
+  --color-success-foreground: oklch(0.99 0 0);
+
+  --color-warning: oklch(0.75 0.15 85);
+  --color-warning-foreground: oklch(0.25 0.05 85);
+
+  --color-info: oklch(0.65 0.14 210);
+  --color-info-foreground: oklch(0.99 0 0);
+
+  --color-border: oklch(0.91 0.022 285);
+  --color-input: oklch(0.91 0.022 285);
+  --color-ring: oklch(0.58 0.2 260);
+
+  /* ── Border radius ────────────────────────────────────────────────────── */
+
+  --radius-none: 0;
+  --radius-xs: 0.125rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* ── Shadows ──────────────────────────────────────────────────────────── */
+
+  --shadow-xs: 0 1px 2px oklch(0.24 0.06 275 / 0.04);
+  --shadow-sm: 0 1px 3px oklch(0.24 0.06 275 / 0.08), 0 1px 2px oklch(0.24 0.06 275 / 0.04);
+  --shadow-md: 0 4px 6px oklch(0.24 0.06 275 / 0.06), 0 2px 4px oklch(0.24 0.06 275 / 0.04);
+  --shadow-lg: 0 10px 15px oklch(0.24 0.06 275 / 0.08), 0 4px 6px oklch(0.24 0.06 275 / 0.04);
+  --shadow-xl: 0 20px 25px oklch(0.24 0.06 275 / 0.1), 0 8px 10px oklch(0.24 0.06 275 / 0.04);
+
+  /* ── Layout & spacing ─────────────────────────────────────────────────── */
+
+  --spacing-header: 4rem;
+  --spacing-sidebar: 16rem;
+  --spacing-card: 1.5rem;
+  --spacing-card-sm: 1rem;
+  --spacing-section: 5rem;
+  --spacing-stack: 1rem;
+  --spacing-stack-sm: 0.5rem;
+  --spacing-page: 1.5rem;
+  --spacing-page-lg: 2.5rem;
+
+  /* max-width namespace — do NOT define these under --spacing-* (Tailwind shares that scale) */
+  --max-width-form: 28rem;
+  --max-width-narrow: 48rem;
+  --max-width-content: 64rem;
+  --max-width-app: 72rem;
+
+  --spacing-input: 2.5rem;
+  --spacing-button: 2.5rem;
+  --spacing-button-lg: 2.75rem;
+
+  --spacing-icon-xs: 0.75rem;
+  --spacing-icon-sm: 1rem;
+  --spacing-icon-md: 1.25rem;
+  --spacing-icon-lg: 1.5rem;
+  --spacing-icon-xl: 2rem;
+  --spacing-icon-2xl: 3rem;
+
+  --spacing-error-page: 60vh;
+
+  /* ── Z-index ──────────────────────────────────────────────────────────── */
+
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1100;
+  --z-index-overlay: 1200;
+  --z-index-modal: 1300;
+  --z-index-toast: 1400;
+
+  /* ── Motion ───────────────────────────────────────────────────────────── */
+
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+
+  --animate-spin: spin 1s linear infinite;
+  --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-fade-in-up: fade-in-up 0.6s var(--ease-out) both;
+  --animate-fade-in: fade-in 0.5s var(--ease-out) both;
+  --animate-chat-typing-bounce: chat-typing-bounce 1.4s var(--ease-in-out) infinite;
+  --animate-chat-shimmer: chat-shimmer 2.4s var(--ease-in-out) infinite;
+  --animate-chat-glow: chat-glow 2s var(--ease-in-out) infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes chat-typing-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.45;
+  }
+
+  30% {
+    transform: translateY(-5px) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes chat-shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes chat-glow {
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 0.85;
+  }
+}
+
+/* ── Dark mode (opt-in via .dark on <html>) ─────────────────────────────── */
+
+.dark {
+  --color-background: oklch(0.14 0.025 285);
+  --color-foreground: oklch(0.96 0.012 285);
+
+  --color-card: oklch(0.19 0.03 285);
+  --color-card-foreground: oklch(0.96 0.012 285);
+
+  --color-popover: oklch(0.19 0.03 285);
+  --color-popover-foreground: oklch(0.96 0.012 285);
+
+  --color-primary: oklch(0.62 0.24 298);
+  --color-primary-foreground: oklch(0.99 0 0);
+
+  --color-secondary: oklch(0.26 0.04 285);
+  --color-secondary-foreground: oklch(0.96 0.012 285);
+
+  --color-muted: oklch(0.26 0.04 285);
+  --color-muted-foreground: oklch(0.68 0.04 280);
+
+  --color-accent: oklch(0.28 0.06 260);
+  --color-accent-foreground: oklch(0.96 0.012 285);
+
+  --color-destructive: oklch(0.55 0.2 25);
+  --color-destructive-foreground: oklch(0.99 0 0);
+
+  --color-border: oklch(0.3 0.035 285);
+  --color-input: oklch(0.3 0.035 285);
+  --color-ring: oklch(0.68 0.16 210);
+}
+
+@layer utilities {
+  .bg-brand-gradient {
+    background: linear-gradient(
+      160deg,
+      var(--color-brand-purple) 0%,
+      var(--color-brand-blue) 52%,
+      var(--color-brand-cyan) 100%
+    );
+  }
+
+  .landing-card-hover {
+    transition:
+      transform var(--duration-normal) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out);
+  }
+
+  .landing-card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up,
+    .animate-fade-in,
+    .animate-chat-typing-bounce,
+    .animate-chat-shimmer,
+    .animate-chat-glow {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .landing-card-hover:hover {
+      transform: none;
+    }
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: var(--color-background);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--color-foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-tight);
+  }
+}
+
+/* Sonner — brand purple success toasts (oklch(0.58 0.24 300)) */
+[data-sonner-toaster] [data-rich-colors='true'][data-sonner-toast][data-type='success'],
+[data-sonner-toaster]
+  [data-rich-colors='true'][data-sonner-toast][data-type='success']
+  [data-close-button] {
+  background: var(--color-brand-purple);
+  border-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
