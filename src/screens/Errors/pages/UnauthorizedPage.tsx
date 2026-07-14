@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/use-auth';
 import { getHomeRouteForRole } from '@/routes/paths';
-import unauthorizedImage from '../../../../dist/assets/undraw_data-thief_d66l.svg';
+import unauthorizedImage from '@/assets/undraw_data-thief_d66l.svg';
 
 export function UnauthorizedPage() {
   const { user } = useAuth();

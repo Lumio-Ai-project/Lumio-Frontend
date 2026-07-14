@@ -1,0 +1,1 @@
+import{j as r}from"./index-BgASrpq4.js";import{C as e,a as n,b as t,c as i,d as o}from"./card-C-xhw2x_.js";function j({title:a,description:s,children:d}){return r.jsxs(e,{children:[r.jsxs(n,{children:[r.jsx(t,{children:a}),s?r.jsx(i,{children:s}):null]}),r.jsx(o,{children:d})]})}export{j as A};

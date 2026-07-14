@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/routes/paths';
-import notFoundImage from '../../../../dist/assets/undraw_page-not-found_6wni.svg';
+import notFoundImage from '@/assets/undraw_page-not-found_6wni.svg';
 
 export function NotFoundPage() {
   return (

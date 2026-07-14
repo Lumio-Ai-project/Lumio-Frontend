@@ -1,0 +1,1 @@
+const n={mode:"onTouched",reValidateMode:"onChange"};function i(r,s,o){if(!r[o])return;const e=s[o];if(e&&"message"in e&&typeof e.message=="string")return e.message}function t(r,s){return r.safeParse(s).success}export{n as A,i as g,t as i};

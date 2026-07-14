@@ -1,1 +1,0 @@
-import{u as a,j as s}from"./index-DKl5TGoD.js";function t(){const{user:e}=a();return s.jsxs("div",{children:[s.jsx("h1",{className:"text-2xl font-bold",children:"Dashboard"}),s.jsxs("p",{className:"mt-stack-sm text-muted-foreground",children:["Welcome back, ",e==null?void 0:e.name,". Your personalized news feed will appear here in Phase 2."]})]})}export{t as DashboardPage};

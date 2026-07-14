@@ -1,0 +1,1 @@
+import{s as a,j as e,x as r,R as t}from"./index-BgASrpq4.js";function n(){const{isAdmin:s,isModerator:o}=a();return s?e.jsx(r,{to:t.DASHBOARD_USERS,replace:!0}):o?e.jsx(r,{to:t.DASHBOARD_TEMPLATES,replace:!0}):e.jsx(r,{to:t.DASHBOARD_API_KEYS,replace:!0})}export{n as DashboardIndexRedirect};
