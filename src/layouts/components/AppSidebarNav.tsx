@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/routes/paths';
 import { preloadChatPage, preloadDashboardPage } from '@/routes/lazy-pages';
 import { ChatSidebarList } from '@/screens/Chat/components/ChatSidebarList';
+import { DashboardSidebarNav } from '@/screens/Dashboard/components/DashboardSidebarNav';
 import { cn } from '@/lib/utils';
 
 const sidebarLinkClass = ({ isActive }: { isActive: boolean }) =>
@@ -23,16 +24,24 @@ interface AppSidebarNavProps {
 }
 
 function DashboardNavLink() {
+  const location = useLocation();
+  const isDashboardRoute =
+    location.pathname === ROUTES.DASHBOARD ||
+    location.pathname.startsWith(`${ROUTES.DASHBOARD}/`);
+
   return (
-    <NavLink
-      to={ROUTES.DASHBOARD}
-      className={sidebarLinkClass}
-      onMouseEnter={preloadDashboardPage}
-      onFocus={preloadDashboardPage}
-    >
-      <LayoutDashboard className="size-icon-sm shrink-0" aria-hidden />
-      Dashboard
-    </NavLink>
+    <div className="flex flex-col">
+      <NavLink
+        to={ROUTES.DASHBOARD}
+        className={() => sidebarLinkClass({ isActive: isDashboardRoute })}
+        onMouseEnter={preloadDashboardPage}
+        onFocus={preloadDashboardPage}
+      >
+        <LayoutDashboard className="size-icon-sm shrink-0" aria-hidden />
+        Dashboard
+      </NavLink>
+      {isDashboardRoute ? <DashboardSidebarNav /> : null}
+    </div>
   );
 }
 
