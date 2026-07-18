@@ -185,17 +185,17 @@ const PopoverOverlay = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTM
 PopoverOverlay.displayName = 'PopoverOverlay';
 
 const popoverContentVariants = cva(
-  'fixed left-1/2 top-1/2 z-modal flex max-h-[min(90vh,48rem)] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-lg border border-border bg-popover text-popover-foreground shadow-lg outline-none transition-all duration-normal',
+  'fixed left-1/2 top-1/2 w-[90%] md:w-[48rem] z-modal flex max-h-[min(90vh,48rem)] -translate-x-1/2  -translate-y-1/2 flex-col overflow-hidden rounded-lg border border-border bg-popover text-popover-foreground shadow-lg outline-none transition-all duration-normal',
   {
     variants: {
       size: {
-        sm: 'w-full max-w-md',
-        md: 'w-full max-w-xl',
-        half: 'w-[min(50vw,42rem)] max-w-[calc(100vw-2rem)]',
+        sm: 'w-full',
+        md: 'w-[48rem]',
+        half: '',
       },
     },
     defaultVariants: {
-      size: 'md',
+      size: 'sm',
     },
   },
 );
